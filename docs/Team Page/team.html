@@ -54,51 +54,11 @@
     <div class="container-fluid" style="padding-top: 9.7vw;">
         <h1>Head Faculty</h1>
         <div class="row">
-            <% for(let i=0;i<arr.length;i++){%>
-                <% if(arr[i].Designation==1){%>
-                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 d-flex justify-content-center">
-                        <div class="box">
-                            <div class="profile-img"><img src="/admin/Image/<%=arr[i].filename%>" alt="" srcset=""></div>
-                            <h2>
-                                <%=arr[i].FirstName%>
-                                    <%=arr[i].LastName%>
-                            </h2>
-                            <p>
-                                <%=arr[i].DesignationName%>
-                            </p>
-                            <p class="Socials">
-                                <a href="<%=arr[i].LinkedIn%>"><i class="fa fa-linkedin"></i></a>
-                                <a href="<%=arr[i].Github%>"><i class="fa fa-github"></i></a>
-                                <a href="<%=arr[i].Facebook%>"><i class="fa fa-facebook"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <%}}%>
         </div>
     </div>
     <h1>Coding Club Team 2020-2021</h1>
     <div class="container-fluid ">
-        <div class="row">
-            <% for(let i=0;i<arr.length;i++){%>
-                <% if(arr[i].Designation>2){%>
-                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 d-flex justify-content-center">
-                        <div class="box ">
-                            <div class="profile-img"><img src="/admin/Image/<%=arr[i].filename%>" alt="" srcset=""></div>
-                            <h2>
-                                <%=arr[i].FirstName%>
-                                    <%=arr[i].LastName%>
-                            </h2>
-                            <p>
-                                <%=arr[i].DesignationName%>
-                            </p>
-                            <p class="Socials">
-                                <a href="<%=arr[i].LinkedIn%>"><i class="fa fa-linkedin"></i></a>
-                                <a href="<%=arr[i].Github%>"><i class="fa fa-github"></i></a>
-                                <a href="<%=arr[i].Facebook%>"><i class="fa fa-facebook"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <%}}%>
+        <div id="teammember" class="row">
         </div>
     </div>
     </div>
