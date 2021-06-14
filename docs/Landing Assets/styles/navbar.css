@@ -80,9 +80,9 @@ ul {
     display: none;
 }
 
-.button_scroll img {
+/* .button_scroll img {
     /* align-self: center; */
-}
+} */
 
 @media only screen and (max-width: 768px) {
     body {
