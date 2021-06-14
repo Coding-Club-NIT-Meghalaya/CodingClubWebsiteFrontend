@@ -102,24 +102,31 @@ async function getImage(){
     }
 }
 
-get_programming_data()
+//programming part
+programming_data()
+.catch(error => {
+    console.log('error!!');
+    console.error(error);
+});
 
-async function get_programming_data(){
-    const response = await fetch('https://codingclubnitm.herokuapp.com/api/v1/event/');
+async function programming_data(){
+    const response = await fetch('https://codingclubnitm.herokuapp.com/api/v1/programming/');
     const data = await response.json();
+    const row = document.getElementById('culture_row');
+    const url = 'https://codingclubnitm.herokuapp.com/api/v1/image/';
+    // let myHtml = data.programming_data[1].Title ;
 
-    const caro1 = document.getElementById("culture1");
-    const url = 'https://codingclubnitm.herokuapp.com/api/v1/programming/';
-    for(let i=1;i<data.count; i++)
-    {
-        let myHtml = '<div><div class="card overflow-hidden flex-wrap"><img src="'+url + data.programming_data[i].filename +'" class="card-img-top">';
-        myHtml += '<div class="card-body" style="margin-top:0px;"><h4 class="title">'+data.programming_data[i].Title + '</h4>';
-        myHtml += '<div class="d-flex flex-column"><span class="date">Start Date:'+data.programming_data[i].StartDate.subtring(0,10);
-        myHtml += '</span><span class="date">End Date:'+data.programming_data[i].EndDate.subtring(0,10)+'</span>';
-        myHtml += '<span class="date">Time:'+data.programming_data[i].Time +'</span></div>';
-        myHtml += '<p class="card-text">'+ data.programming_data[i].ShortDescription.substring(0,60) +'... <a href="'+data.programming_data[i].Link +'">Go To event</a></p>';
-        myHtml += ' <a href="'+data.programming_data[i].RegistrationLink +'" <button type="button" class="button">Register Now</button></a></div></div>';
-        caro1.innerHTML+=myHtml;
+    for(let i = 0;i < data.count ;i++){
+        let myHtml = '<div><div class="card overflow-hidden flex-wrap"><img src = "'+ url + data.programming_data[i].FileName +'" class="card-img-top">';
+
+        myHtml += '<div class="card-body" style="margin-top:0px;"><h4 class="title">'+ data.programming_data[i].Title + '<h4>';
+        myHtml += '<div class="d-flex flex-column"><span class="date">Start Date:'+ data.programming_data[i].StartDate.substring(0,10); 
+        myHtml += '</span><span class="date">End Date:'+ data.programming_data[i].EndDate.substring(0,10);
+        myHtml += '</span><span class="date">Time:'+data.programming_data[i].Time + '</span></div>';
+        myHtml += '<p class="card-text">' + data.programming_data[i].ShortDescription.substring(0,60) + '...<a href="' + data.programming_data[i].Link + '">Go to event</a></p>';
+        myHtml += '<a href="' + data.programming_data[i].RegistrationLink+'"><button type="button" class="button">Register Now</button></a></div>';
+
+        row.innerHTML += myHtml;
     }
 }
 
