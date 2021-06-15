@@ -77,3 +77,84 @@ buttonLeft1.onclick = function() {
         }, 200);
     });
 })(jQuery);
+
+// top carousel
+
+ getImage()
+
+async function getImage(){
+    const response = await fetch('https://codingclubnitm.herokuapp.com/api/v1/event/');
+    const data = await response.json();
+    
+    const carousel = document.getElementById("carouselExampleCaptions");
+    const url = 'https://codingclubnitm.herokuapp.com/api/v1/image/';
+  
+    for(let i = 1; i< data.count; i++){
+        let myHtml = ' <ol class="carousel-indicators"><li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li><li data-target="#carouselExampleCaptions" data-slide-to="'+i+'"></li></ol>';
+        myHtml += '<div  class="carousel-inner"><div class="carousel-item active"><img src="' + url +data.event_data[0].FileName;
+        myHtml += '" class="d-block w-100 max" alt="..."></div>'
+        myHtml += '<div class="carousel-item"><img src="' + url +data.event_data[i].FileName;
+        myHtml += '"class="d-block w-100 max" alt="..."></div>'
+        myHtml += '<a class=" carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>'
+
+        carousel.innerHTML += myHtml;
+        
+    }
+}
+
+//programming part
+programming_data()
+.catch(error => {
+    console.log('error!!');
+    console.error(error);
+});
+
+async function programming_data(){
+    const response = await fetch('https://codingclubnitm.herokuapp.com/api/v1/programming/');
+    const data = await response.json();
+    const row = document.getElementById('culture_row');
+    const url = 'https://codingclubnitm.herokuapp.com/api/v1/image/';
+    // let myHtml = data.programming_data[1].Title ;
+
+    for(let i = 0;i < data.count ;i++){
+        let myHtml = '<div><div class="card overflow-hidden flex-wrap"><img src = "'+ url + data.programming_data[i].FileName +'" class="card-img-top">';
+
+        myHtml += '<div class="card-body" style="margin-top:0px;"><h4 class="title">'+ data.programming_data[i].Title + '<h4>';
+        myHtml += '<div class="d-flex flex-column"><span class="date">Start Date:'+ data.programming_data[i].StartDate.substring(0,10); 
+        myHtml += '</span><span class="date">End Date:'+ data.programming_data[i].EndDate.substring(0,10);
+        myHtml += '</span><span class="date">Time:'+data.programming_data[i].Time + '</span></div>';
+        myHtml += '<p class="card-text">' + data.programming_data[i].ShortDescription.substring(0,60) + '...<a href="' + data.programming_data[i].Link + '">Go to event</a></p>';
+        myHtml += '<a href="' + data.programming_data[i].RegistrationLink+'"><button type="button" class="button">Register Now</button></a></div>';
+
+        row.innerHTML += myHtml;
+    }
+}
+
+// webinar part
+
+webinarData()
+.catch(error => {
+    console.log('error!!');
+    console.error(error);
+});
+
+async function webinarData(){
+    const response = await fetch('https://codingclubnitm.herokuapp.com/api/v1/webinar/');
+    const data = await response.json();
+    const row = document.getElementById('culture_row1');
+    const url = 'https://codingclubnitm.herokuapp.com/api/v1/image/';
+    // let myHtml = data.webinar_data[1].Title ;
+
+    for(let i = 0;i < data.count ;i++){
+        let myHtml = '<div class="col-md-4"><div class="card"><img src = "'+ url + data.webinar_data[i].FileName +'" class="card-img-top">';
+
+        myHtml += '<div class="card-body" style="margin-top:0px;"><h4 class="title">'+ data.webinar_data[i].Title + '<h4>';
+        myHtml += '<div class="d-flex flex-column"><span class="date">Start Date:'+ data.webinar_data[i].StartDate.substring(0,10); 
+        myHtml += '</span><span class="date">End Date:'+ data.webinar_data[i].EndDate.substring(0,10);
+        myHtml += '</span><span class="date">Time:'+data.webinar_data[i].Time + '</span></div>';
+        myHtml += '<p class="card-text">' + data.webinar_data[i].ShortDescription.substring(0,60) + '...<a href="' + data.webinar_data[i].Link + '">Go to event</a></p>';
+        myHtml += '<a href="' + data.webinar_data[i].RegistrationLink+'"><button type="button" class="button">Register Now</button></a></div>';
+
+        row.innerHTML += myHtml;
+    }
+}
