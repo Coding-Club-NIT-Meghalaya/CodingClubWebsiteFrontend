@@ -23,12 +23,12 @@
 <body>
     <nav>
         <div id="logo">
-            <a href="/"><img src="../Landing Assets/images/cc.png" alt=""></a>
+            <a href="/"><img src="../Landing Assets/images/Logo.png" alt=""></a>
         </div>
         <ul class="nav-links">
             <li> <a href="../index.html">HOME</a> </li>
             <li> <a href="../Resources Page/resource.html">RESOURCES</a> </li>
-            <li> <a href="../Project Page/project.html">PROJECTS</a> </li>
+            <!-- <li> <a href="../Project Page/project.html">PROJECTS</a> </li> -->
             <li> <a href="../Team Page/team.html">TEAM</a> </li>
         </ul>
         <div class="burger">
@@ -172,29 +172,7 @@
                 professionals & stratups
             </small>
             <hr class="style13">
-            <div class="row d-flex flex-row flex-nowrap overflow-auto" style="display: flex;" id="culture_row">
-                <%for(let i=0;i<achievement.length;i++){%>
-                    <div class="cardbox">
-                        <div class=" d-flex flex-column">
-                            <div className="user_name align-self-end">
-                                <div class="a-card">
-                                    <img class="card-img-top imgStyle" src="/admin/Image/<%=achievement[i].FileName%>" alt="card image cap">
-                                    <div class="card-body">
-                                        <h3 class="card-title">
-                                            <%=achievement[i].Name%>
-                                        </h3>
-                                        <span class="date">
-                                        <%=achievement[i].Date.toDateString()%>
-                                    </span>
-                                        <p class="card-text">
-                                            <%=achievement[i].Description%>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <%}%>
+            <div class="row d-flex flex-row flex-nowrap overflow-auto" style="display: flex;" id="achievement_row">
             </div>
             <div class="slide_button">
                 <div class="scrollbtn">

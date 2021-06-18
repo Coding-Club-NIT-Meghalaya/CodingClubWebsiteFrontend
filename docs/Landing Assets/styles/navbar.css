@@ -42,9 +42,9 @@ ul {
 }
 
 #logo img {
-    width: 4vw;
-    height: 4vw;
-    margin: 10px 0;
+    width: 8vw;
+    height: 5vw;
+    margin: 10px;
 }
 
 
@@ -81,9 +81,9 @@ ul {
     display: none;
 }
 
+
 /* .button_scroll img {
     /* align-self: center; */
-} */
 
 @media only screen and (max-width: 768px) {
     body {
