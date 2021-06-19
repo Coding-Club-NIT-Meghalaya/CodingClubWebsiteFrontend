@@ -1,31 +1,3 @@
-var acc = document.getElementsByClassName("accordion");
-var sacc = document.getElementsByClassName("sub-accordion");
-
-var i, j;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
-for (j = 0; j < sacc.length; j++) {
-    sacc[j].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
-
 /*
 const spans = document.querySelectorAll('.word span');
 spans.forEach((span, idx) => {
@@ -49,17 +21,102 @@ spans.forEach((span, idx) => {
 //API fetch for materials, blogs, videos; ship51
 
 
-// function showMaterials(data) {
-// 	var row = document.querySelector('#material');
-// 	for (let i = 0; i < data.count; i++) {
-// 		var myhtml = '';
-// 		myhtml += '';
-// 		row.innerHTML += myhtml;
-// 	}
-// }
-// fetch('https://codingclubnitm.herokuapp.com/api/v1/material')
-// 	.then(response => response.json())
-// 	.then(data => showMaterials(data)); 
+function showMaterials(data) {
+    var row = document.querySelector('#material_row');
+
+    for (let i = 0; i < data.count; i++) {
+        var myhtml =
+            '<button class="accordion"><i class="fa fa-paper-plane" aria-hidden="false"></i>' +
+            data.material_data[i].Year +
+            '</button>' +
+            '<div class="panel">' +
+            '<button class="sub-accordion"><img src="Images/folder_icon.png"' +
+            'height="22px" width="22px" /> Orientation</button>' +
+            '<div class="sub-panel">' +
+            '<ul>';
+        var myhtml2 = ''
+        for (let j = 0; j < data.material_data[i].Field.Orientation.Event.length; j++) {
+            myhtml2 += '<li>' +
+                '<a href="' + data.material_data[i].Field.Orientation.Event[j].Link + '" class="links"><i' +
+                'class="fa fa-link" aria-hidden="false"></i>' +
+                data.material_data[i].Field.Orientation.Event[j].Name +
+                '</a>' +
+                '</li>';
+        }
+        myhtml += myhtml2;
+        myhtml += '</ul>' +
+            '</div>' +
+            '<button class=" sub-accordion"><img src="Images/folder_icon.png"' +
+            'height="22px" width="22px" /> Assignment</button>' +
+            '<div class="sub-panel">' +
+            '<ul>';
+        var myhtml3 = '';
+        for (let j = 0; j < data.material_data[i].Field.Assignment.Event.length; j++) {
+            myhtml3 += '<li>' +
+                '<a href="' + data.material_data[i].Field.Assignment.Event[j].Link + '" class="links"><i' +
+                'class="fa fa-link" aria-hidden="false"></i>' +
+                data.material_data[i].Field.Assignment.Event[j].Name +
+                '</a>' +
+                '</li>';
+        }
+        myhtml += myhtml3;
+        myhtml += '</ul>' +
+            '</div>' +
+            '<button class="sub-accordion"><img src="Images/folder_icon.png"' +
+            'height="22px" width="22px" /> Presentation</button>' +
+            '<div class="sub-panel">' +
+            '<ul>';
+        var myhtml4 = '';
+        for (let j = 0; j < data.material_data[i].Field.Presentation.Event.length; j++) {
+            myhtml4 += '<li>' +
+                '<a href="' + data.material_data[i].Field.Presentation.Event[j].Link + '" class="links"><i' +
+                'class="fa fa-link" aria-hidden="false"></i>' +
+                data.material_data[i].Field.Presentation.Event[j].Name +
+                '</a>' +
+                '</li>';
+        }
+        myhtml += myhtml4;
+        myhtml += '</ul>' +
+            '</div>' +
+            '</div>';
+        row.innerHTML += myhtml;
+    }
+
+    var acc = document.getElementsByClassName("accordion");
+    var sacc = document.getElementsByClassName("sub-accordion");
+
+
+    var i, j;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            console.log("Inside");
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+    for (j = 0; j < sacc.length; j++) {
+        sacc[j].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+
+
+}
+fetch('https://codingclubnitm.herokuapp.com/api/v1/material')
+    .then(response => response.json())
+    .then(data => showMaterials(data));
 
 const apiUrlMaterial = 'https://codingclubnitm.herokuapp.com/api/v1/material/';
 async function getMaterials() {

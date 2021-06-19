@@ -121,8 +121,8 @@ async function programming_data() {
         myHtml += '<div class="d-flex flex-column"><span class="date">Start Date:' + data.programming_data[i].StartDate.substring(0, 10);
         myHtml += '</span><span class="date">End Date:' + data.programming_data[i].EndDate.substring(0, 10);
         myHtml += '</span><span class="date">Time:' + data.programming_data[i].Time + '</span></div>';
-        myHtml += '<p class="card-text">' + data.programming_data[i].ShortDescription.substring(0, 60) + '...<a href="' + data.programming_data[i].Link + '">Go to event</a></p>';
-        myHtml += '<a href="' + data.programming_data[i].RegistrationLink + '"><button type="button" class="button">Register Now</button></a></div>';
+        myHtml += '<p class="card-text">' + data.programming_data[i].ShortDescription.substring(0, 60) + '...</p>';
+        myHtml += '<a href="' + data.programming_data[i].RegistrationLink + '"><button type="button" class="button">Get Details</button></a></div>';
 
         row.innerHTML += myHtml;
     }
@@ -150,8 +150,8 @@ async function webinarData() {
         myHtml += '<div class="d-flex flex-column"><span class="date">Start Date:' + data.webinar_data[i].StartDate.substring(0, 10);
         myHtml += '</span><span class="date">End Date:' + data.webinar_data[i].EndDate.substring(0, 10);
         myHtml += '</span><span class="date">Time:' + data.webinar_data[i].Time + '</span></div>';
-        myHtml += '<p class="card-text">' + data.webinar_data[i].ShortDescription.substring(0, 60) + '...<a href="' + data.webinar_data[i].Link + '">Go to event</a></p>';
-        myHtml += '<a href="' + data.webinar_data[i].RegistrationLink + '"><button type="button" class="button">Register Now</button></a></div>';
+        myHtml += '<p class="card-text">' + data.webinar_data[i].ShortDescription.substring(0, 60) + '...</p>';
+        myHtml += '<a href="' + data.webinar_data[i].RegistrationLink + '"><button type="button" class="button">Get Details</button></a></div>';
 
         row.innerHTML += myHtml;
     }
