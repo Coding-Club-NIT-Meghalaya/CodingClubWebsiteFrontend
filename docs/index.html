@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,900&display=swap" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./Landing Assets/styles/style.css" />
     <link rel="stylesheet" href="./Landing Assets/styles/navbar.css">
     <link rel="stylesheet" href="./Landing Assets/styles/footer.css">
+    <link rel="stylesheet" href="./Landing Assets/styles/contact.css">
+    <link rel="icon" href="./logo.png" type="image/icon type">
 </head>
 
 <body>
@@ -43,21 +48,25 @@
             </div>
         </div>
         <!-- //////////////////////////////////////////////////////////////////// -->
+        <div class="container">
+            <div id="contactform" class="wrapper fadeInDown">
+                <div id="formContent" class="p-3">
+                    <span value="close" onClick="CloseAndRefresh();" class="close" title="Close">&times;</span>
+                    <h2>How can we help you?</h2>
+                    <small>We'll get back to you as soon as possible</small>
+                    <div class="fadeIn first">
+                        <img src="./CodingClubLogo.jpg" id="icon" alt="User Icon" />
+                    </div>
+                    <form method="POST" action="/auth/login" name="Contact">
+                        <input placeholder="Name" name="Name" type="text" required />
+                        <input placeholder="Email" name="Email" type="email" required />
+                        <input placeholder="Subject" name="subject" type="text" required />
+                        <input placeholder="Message" name="comment" type="text">
+                        <input id="contact" type="submit" class="fadeIn fourth" value="Submit">
+                    </form>
 
-        <div id="contactForm">
-            <div id="id01" class="contactContent">
-                <span value="close" onClick="CloseAndRefresh();" class="close" title="Close">&times;</span>
-                <h2>How can we help you?</h2>
-                <small>We'll get back to you as soon as possible</small>
-                <form method="POST" autocomplete="off" name="Contact">
-                    <input placeholder="Name" name="Name" type="text" required />
-                    <input placeholder="Email" name="Email" type="email" required />
-                    <input placeholder="Subject" name="subject" type="text" required />
-                    <textarea placeholder="Message" name="comment"></textarea>
-                    <button class="formBtn" type="submit">Submit</button>
-                </form>
+                </div>
             </div>
-
         </div>
         <script>
             const scriptURL =
@@ -194,11 +203,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
     <script src="./Landing Assets/scripts/animate.js"></script>
     <script src="./Landing Assets/scripts/navbar.js"></script>
+    <script src="./Landing Assets/scripts/script.js"></script>
 
     <script>
         function CloseAndRefresh() {
             location.reload(true);
-            self.close();
         }
     </script>
     <script>
