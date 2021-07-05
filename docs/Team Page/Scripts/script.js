@@ -19,6 +19,7 @@
 
 function myfun(data) {
     var row = document.querySelector('#teammember');
+    var head = document.querySelector("#headfaculty");
     for (let i = 0; i < data.count; i++) {
         var myhtml = '<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 d-flex justify-content-center"><div class = "box"><div class = "profile-img" > <img src = "';
         myhtml += 'https://codingclubnitm.herokuapp.com/api/v1/image/' + data.team_data[i].filename;
@@ -27,7 +28,10 @@ function myfun(data) {
         myhtml += "<p>" + data.team_data[i].DesignationName + "</p>";
         myhtml += '<p class="Socials"><a href="' + data.team_data[i].LinkedIn + '"><i class="fa fa-linkedin"></i></a><a href="' + data.team_data[i].Github + '"><i class="fa fa-github"></i></a><a href="' + data.team_data[i].Facebook + '"><i class="fa fa-facebook"></i></a></p>';
         myhtml += '</div></div>';
-        row.innerHTML += myhtml;
+        if (data.team_data[i].DesignationName == "Head Faculty")
+            head.innerHTML += myhtml;
+        else
+            row.innerHTML += myhtml;
     }
 }
 fetch('https://codingclubnitm.herokuapp.com/api/v1/teammember', )

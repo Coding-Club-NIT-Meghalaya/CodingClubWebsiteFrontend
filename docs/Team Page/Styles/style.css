@@ -6,13 +6,20 @@
     font-family: "Montserrat", sans-serif;
 }
 
+#headfaculty {
+    display: flex;
+    justify-content: center;
+}
+
 body {
     width: 100%;
     background-image: linear-gradient(to bottom right, #855ccc, #120520);
     background-attachment: fixed;
 }
 
+
 /***********************navbar*****************/
+
 
 /* #navbar img {
     width: 8vw;
@@ -32,7 +39,6 @@ body {
 } */
 
 #meet {
-
     position: fixed;
     margin: 0% !important;
     padding: 0% !important;
@@ -59,7 +65,6 @@ body {
     width: 70%;
 }
 
-
 .cubes .layer:nth-child(1) {
     -webkit-filter: blur(.5px);
     filter: blur(.5px);
@@ -68,7 +73,6 @@ body {
 }
 
 .cubes .layer:nth-child(2) {
-
     top: 75vh !important;
     left: 15vw !important;
 }
@@ -108,7 +112,6 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0 auto;
-
 }
 
 h1 {
@@ -128,21 +131,17 @@ h1 {
     display: -ms-flexbox;
     display: -o-flex;
     display: flex;
-
     flex-direction: column;
     justify-content: center;
     align-items: center;
     /* background: #ffffff1a; */
-    background: linear-gradient(112.91deg,
-            rgba(255, 255, 255, 0.479) 3.51%,
-            rgba(255, 255, 255, 0) 111.71%);
+    background: linear-gradient(112.91deg, rgba(255, 255, 255, 0.479) 3.51%, rgba(255, 255, 255, 0) 111.71%);
     padding: 0.2em;
     border-radius: 25px;
     border: 2px solid #0000002a;
     text-align: center;
     /* backdrop-filter: blur(70px); */
     margin: 20px 0px;
-
 }
 
 .profile-img {
@@ -151,7 +150,6 @@ h1 {
     border-radius: 50%;
     overflow: hidden;
     object-fit: cover;
-
 }
 
 .profile-img::before {
@@ -163,7 +161,6 @@ h1 {
     top: 20px;
     right: 98px;
     border-radius: 50%;
-
     filter: blur(70px);
     filter: drop-shadow(50px 60px 100px rgba(0, 0, 0, 0.05));
 }
